@@ -8,11 +8,15 @@ class Lock {
 
   acquire() {
     return new Promise(resolve => {
+      // if not acquired already 
+      
       if (this.locked === false) {
         this.locked = true;
         return resolve();
       }
 
+      // else wait....
+      
       const acquireLock = () => {
         if (this.locked === false) {
           this.locked = true;
